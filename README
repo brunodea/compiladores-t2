@@ -1,0 +1,35 @@
+Trabalho 2 - Compiladores - I/2012
+Data de entrega: 05/07/2012
+
+Bruno Romero de Azevedo
+Davi Felipe Russi
+Vitor da Silva
+
+Objetivo: Implementar um trador para a pseudo-linguagem LED gerando código intermediário e a Tabela de Símbolos. Fazer alguns tratamentos de erros léxicos, sintáticos e semânticos.
+
+Entrada: Código-fonte em LED.
+
+Processamento: Usando GLC (Gramática Livre de Contexto) de LED e gerador compiler-compiler (lex-yacc, javaCC, outro)
+
+Saída: código intermediário de 3-endereço ou código intermediário de 0-endereço (pilha)
+
+Exemplo:
+Entrada x := y + z * w
+
+Saída com 3-endereços:
+mult z,w,_T1
+add y,_T1,_T2
+atrib _T2,x
+
+(operação operando1,operando2,resultado)
+
+x--------------------------------------------x
+| Ou saída com 0-endereços (posfixa ou pilha)|
+x--------------------------------------------x
+
+push y
+push z
+push w
+mult //operação binária com resultado na pilha.
+add  //operação binária com resultado na pilha.
+pop x
