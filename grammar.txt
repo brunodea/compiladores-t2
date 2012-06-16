@@ -3,9 +3,9 @@
 +-----------------------------------+
 
 Var_Start: "Variables" V
-V: V_no_init | V_init | empty
+V        : V_no_init | V_init | empty
 V_no_init: Identifier "," V_no_init | Identifier ":" Type ";" V
-V_init: "val" Identifier "=" Expression V
+V_init   : "val" Identifier "=" Expression V
 
 //TODO: Regras para Expression, Identifier e Type.
 //empty seria o símbolo vazio.
@@ -15,16 +15,16 @@ V_init: "val" Identifier "=" Expression V
 +--------------------+
 
 Input_Start: "Input" I
-I: V_in | empty
-V_in: Identifier "," V_in | Identifier ";" I
+I          : V_in | empty
+V_in       : Identifier "," V_in | Identifier ";" I
 
 +---------------------+
 |Gramática para Output|
 +---------------------+
 
 Output_Start: "Output" O
-O: O_out | empty
-O_out: Identifier "," O_out | Identifier ";" O
+O           : O_out | empty
+O_out       : Identifier "," O_out | Identifier ";" O
 
 +----------------------------+
 |Gramática para processamento|
