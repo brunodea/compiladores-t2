@@ -48,6 +48,15 @@ import ply.lex as lex
 LEX = lex
 LEX.lex()
 
+class Variable(object):
+    def __init__(self,type_,name,value):
+        self.type = type_
+        self.name = name
+        self.value = value
+    
+    def __str__(self):
+        return '%s %s = %s' % (self.type,self.name,self.value)
+
 
 
 
