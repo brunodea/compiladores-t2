@@ -29,8 +29,7 @@ t_ELSE           = r'else'
 t_VAL            = r'val'
 t_IDENTIFIER     = r'bruno'#[a-zA-Z_][a-zA-Z0-9_]*'
 
-
-t_ignore " \t"
+t_ignore         = " \t"
 
 def t_NUMBER(t):
     r'\d+'
