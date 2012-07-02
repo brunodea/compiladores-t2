@@ -143,7 +143,26 @@ def p_typevalue(p):
                  | listvalue'''
     p[0] = p[1]                  
 
+def p_list_start(p):
+    'listvalue : LPAREN list_aux_1 RPAREN'
+    p[0] = p[2]
     
+def p_list_aux_1(p):
+    '''list_aux_1 : typevalue list_aux_2
+                  | '''
+    p[0] = []
+    try:
+        p[0].append(p[1])
+        p[0] += p[2]
+    except Exception as e:
+        pass
+def p_list_aux_2(p):
+    '''list_aux_2 : COMMA list_aux_1
+                  | '''
+    try:
+        p[0] = p[2]
+    except Exception as e:
+        pass
 def p_error(p):
     print("Syntax error at '%s'" % p.value)
 
