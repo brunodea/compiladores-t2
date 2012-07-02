@@ -131,7 +131,8 @@ def p_type(p):
     p[0] = p[1]
 
 def p_expression(p):
-    'expression : INT SEMICOLON'
+    '''expression : INT SEMICOLON 
+                  | FLOAT SEMICOLON'''
     p[0] = p[1]
     
 def p_error(p):
