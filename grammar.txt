@@ -10,15 +10,16 @@ V_init   : "val" Identifier "=" Expression V
 Expression  : TypeValue | "if" "(" BooleanExpr ")" Expression "else" Expression | ForLoop
 BooleanExpr :  
 
-TypeValue   : Num | BooleanValue | StringValue | ListValue
+TypeValue   : Num | BooleanValue | StringValue | ListValue | CharValue
 Num         : ... | -1 | -.5 | 0 | 0.5 | 1 | ...
 BooleanValue: "True" | "False"
 StringValue : "..."
+CharValue   : 'a' | 'b' | ...
 ListValue   : "(" ListValueAux ")"
 ListValueAux: TypeValue ListValueAx2
 ListValueAx2: "," ListValueAux | empty
 
-Type = "int" | "float" | "boolean" | "string" | "list"
+Type = "int" | "float" | "boolean" | "string" | "list" | "char" | "val"
 
 //TODO: Regras para Expression, Identifier e Type.
 //empty seria o símbolo vazio.
