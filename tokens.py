@@ -1,7 +1,9 @@
 
 tokens = (
     'NUMBER','PLUS','MINUS','TIMES','DIVIDE','EQUALS','LPAREN','RPAREN',
-    'VARIABLES_DECL','IDENTIFIER'
+    'VARIABLES_DECL','COLON', 'SEMICOLON', 'COMMA', 'VAL',
+    'INT','FLOAT','BOOLEAN','STRING','LIST', 'CHAR', 'TRUE', 'FALSE',
+    'IF','ELSE','IDENTIFIER'
     )
 
 t_VARIABLES_DECL = r'Variables'
@@ -11,7 +13,21 @@ t_DIVIDE         = r'/'
 t_EQUALS         = r'='
 t_LPAREN         = r'\('
 t_RPAREN         = r'\)'
-t_IDENTIFIER     = r'[a-zA-Z_][a-zA-Z0-9_]*'
+t_COLON          = r'\:'
+t_SEMICOLON      = r'\;'
+t_COMMA          = r'\,'
+t_INT            = r'int'
+t_FLOAT          = r'float'
+t_BOOLEAN        = r'boolean'
+t_STRING         = r'string'
+t_LIST           = r'list'
+t_CHAR           = r'char'
+t_TRUE           = r'True'
+t_FALSE          = r'False'
+t_IF             = r'if'
+t_ELSE           = r'else'
+t_VAL            = r'val'
+t_IDENTIFIER     = r'bruno'#[a-zA-Z_][a-zA-Z0-9_]*'
 
 
 t_ignore " \t"
