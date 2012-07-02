@@ -2,7 +2,7 @@
 tokens = (
     'PLUS','MINUS','TIMES','DIVIDE','EQUALS','LPAREN','RPAREN',
     'VARIABLES_DECL','COLON', 'SEMICOLON', 'COMMA', 'VAL',
-    'INT','FLOAT','BOOLEAN','STRING','LIST', 'CHAR', 'TRUE', 'FALSE',
+    'INT','FLOAT','BOOLEAN','STRING', 'CHAR', 'TRUE', 'FALSE',
     'IF','ELSE','IDENTIFIER','TYPE'
     )
 
@@ -69,7 +69,7 @@ def t_CHAR(t):
     return t
 
 def t_TYPE(t):
-    r'int|float|boolean|string|list|char'
+    r'int|float|boolean|string|char'
     return t
 
 def t_newline(t):
