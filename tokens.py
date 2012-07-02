@@ -57,6 +57,47 @@ class Variable(object):
     def __str__(self):
         return '%s %s = %s' % (self.type,self.name,self.value)
 
+VARIABLES = {}
+
+def p_vars_decl_start(p):
+    'variables : VARIABLES_DECL variables'
+    pass
+
+def p_vars(p):
+    '''variables : varsnoinit
+                 | varsinit
+                 | '''
+    
+def p_vars_noinit(p):
+    '''varsnoinit : IDENTIFIER COMMA varsnoinit
+                  | IDENTIFIER COLON type SEMICOLON variables'''
+    name = p[1]+'_'+str(len(VARIABLES))
+    VARIABLES[name] = Variable(p[3],name,None)
+    p[0] = p[3]
+
+def p_vars_init(p):
+    'varsinit : VAL IDENTIFIER EQUALS expression variables'
+    VARIABLES[p[2]] = Variable(p[1],p[2],p[4])
+    
+def p_type(p):
+    '''type : INT 
+            | FLOAT 
+            | BOOLEAN 
+            | STRING 
+            | LIST'''
+    p[0] = p[1]
+
+def p_expression(p):
+    'expression : NUMBER SEMICOLON'
+    p[0] = p[1]
+    
+def p_error(p):
+    print("Syntax error at '%s'" % p.value)
+
+import ply.yacc as yacc
+YACC = yacc
+YACC.yacc()
+    
 
 
 
