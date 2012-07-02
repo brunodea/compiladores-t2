@@ -97,6 +97,10 @@ class Variable(object):
     def __str__(self):
         return '%s %s = %s' % (self.type,self.name,self.value)
 
+class AlreadyDeclaredError(Exception):
+    def __init__(self,msg):
+        Exception.__init__(self,msg)
+
 VARIABLES = {}
 
 def p_vars_decl_start(p):
@@ -111,7 +115,10 @@ def p_vars(p):
 def p_vars_noinit(p):
     '''varsnoinit : IDENTIFIER COMMA varsnoinit
                   | IDENTIFIER COLON type SEMICOLON variables'''
-    name = p[1]+'_'+str(len(VARIABLES))
+    name = p[1]
+    if name in VARIABLES:
+        raise AlreadyDeclaredError('Variable %s declared more than once.' % (name))
+    
     VARIABLES[name] = Variable(p[3],name,None)
     p[0] = p[3]
 
