@@ -131,9 +131,18 @@ def p_type(p):
     p[0] = p[1]
 
 def p_expression(p):
-    '''expression : INT SEMICOLON 
-                  | FLOAT SEMICOLON'''
+    '''expression : typevalue SEMICOLON'''
     p[0] = p[1]
+
+def p_typevalue(p):
+    '''typevalue : INT 
+                 | FLOAT
+                 | STRING
+                 | CHAR
+                 | BOOLEAN
+                 | listvalue'''
+    p[0] = p[1]                  
+
     
 def p_error(p):
     print("Syntax error at '%s'" % p.value)
